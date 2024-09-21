@@ -3,7 +3,7 @@ from math import floor, ceil
 from mathutils import Vector, Quaternion
 from mathutils.geometry import distance_point_to_plane
 
-import sprytile_utils
+import sprytile_utils, sprytile_modal
 import sprytile_uv
 import sprytile_preview
 
@@ -63,7 +63,7 @@ class ToolBuild:
                                                                                    ray_origin,
                                                                                    ray_vector)
             if hit_normal is not None:
-                face_up, face_right = VIEW3D_OP_SprytileModalTool.get_face_up_vector(context, face_index, 0.4, bias_right=True)
+                face_up, face_right = sprytile_modal.VIEW3D_OP_SprytileModalTool.get_face_up_vector(context.object, context, face_index, 0.4, bias_right=True)
                 if face_up is not None and face_right is not None:
                     plane_normal = hit_normal
                     up_vector = face_up
@@ -261,7 +261,7 @@ class ToolBuild:
                 sprytile_preview.clear_preview_data()
                 return
 
-            face_up, face_right = VIEW3D_OP_SprytileModalTool.get_face_up_vector(context, face_index, 0.4, bias_right=True)
+            face_up, face_right = sprytile_modal.VIEW3D_OP_SprytileModalTool.get_face_up_vector(context.object, context, face_index, 0.4, bias_right=True)
             if face_up is not None and face_right is not None:
                 plane_normal = hit_normal
                 up_vector = face_up

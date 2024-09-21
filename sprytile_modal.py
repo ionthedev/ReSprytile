@@ -466,6 +466,7 @@ class VIEW3D_OP_SprytileModalTool(bpy.types.Operator):
     def get_face_up_vector(obj, context, face_index, sensitivity=0.1, bias_right=False):
         """
         Find the edge of the given face that most closely matches view up vector
+        :param obj:
         :param context:
         :param face_index:
         :param sensitivity:
